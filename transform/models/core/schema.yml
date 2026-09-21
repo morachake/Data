@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: fct_matches
+    columns:
+      - name: match_id
+        tests: [unique, not_null]
+      - name: home_team_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('teams')
+                field: team_id
+  - name: dim_players
+    columns:
+      - name: player_id
+        tests: [unique, not_null]
+      - name: full_name
+        tests: [not_null]

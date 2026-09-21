@@ -1,0 +1,11 @@
+version: 2
+sources:
+  - name: staging
+    schema: staging
+    tables:
+      - name: wiki_results
+      - name: players
+      - name: player_career
+      - name: player_injuries
+      - name: player_season_stats
+      - name: player_squad_stints

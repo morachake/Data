@@ -1,0 +1,12 @@
+transform:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: 127.0.0.1
+      port: 5434
+      user: football
+      password: football
+      dbname: football
+      schema: core
+      threads: 4

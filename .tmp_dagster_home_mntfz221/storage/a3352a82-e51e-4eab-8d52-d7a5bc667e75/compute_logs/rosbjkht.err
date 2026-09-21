@@ -1,0 +1,7 @@
+[32m2026-09-21 17:19:26 +0300[0m - dagster - [34mDEBUG[0m - psl_pipeline - a3352a82-e51e-4eab-8d52-d7a5bc667e75 - 3029 - LOGS_CAPTURED - Capturing logs for process (pid: 3029).
+[32m2026-09-21 17:19:26 +0300[0m - dagster - [34mDEBUG[0m - psl_pipeline - a3352a82-e51e-4eab-8d52-d7a5bc667e75 - 3029 - wiki_raw_loaded - STEP_START - Started execution of step "wiki_raw_loaded".
+[32m2026-09-21 17:19:29 +0300[0m - dagster - [34mDEBUG[0m - psl_pipeline - a3352a82-e51e-4eab-8d52-d7a5bc667e75 - 3029 - wiki_raw_loaded - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+[32m2026-09-21 17:19:29 +0300[0m - dagster - [34mDEBUG[0m - psl_pipeline - a3352a82-e51e-4eab-8d52-d7a5bc667e75 - wiki_raw_loaded - Writing file at: /Users/moracha/Desktop/Data/.tmp_dagster_home_mntfz221/storage/wiki_raw_loaded using PickledObjectFilesystemIOManager...
+[32m2026-09-21 17:19:29 +0300[0m - dagster - [34mDEBUG[0m - psl_pipeline - a3352a82-e51e-4eab-8d52-d7a5bc667e75 - 3029 - wiki_raw_loaded - ASSET_MATERIALIZATION - Materialized value wiki_raw_loaded.
+[32m2026-09-21 17:19:29 +0300[0m - dagster - [34mDEBUG[0m - psl_pipeline - a3352a82-e51e-4eab-8d52-d7a5bc667e75 - 3029 - wiki_raw_loaded - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2026-09-21 17:19:29 +0300[0m - dagster - [34mDEBUG[0m - psl_pipeline - a3352a82-e51e-4eab-8d52-d7a5bc667e75 - 3029 - wiki_raw_loaded - STEP_SUCCESS - Finished execution of step "wiki_raw_loaded" in 2.97s.

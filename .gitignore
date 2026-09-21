@@ -1,0 +1,28 @@
+# Secrets
+.env
+
+# Scraper output and cache
+data/raw/*
+!data/raw/.gitkeep
+.scrapy/
+ingestion/.scrapy/
+
+# dbt
+transform/target/
+transform/logs/
+transform/dbt_packages/
+transform/package-lock.yml
+transform/.user.yml
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Dagster
+.dagster/
+
+# OS
+.DS_Store

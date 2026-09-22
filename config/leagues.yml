@@ -1,0 +1,311 @@
+# League registry — defines every league the platform ingests.
+# Adding a league = filling out an entry here + writing a source audit CSV
+# under docs/source_audit/<league_id>.csv before any spider is written.
+#
+# season_format:
+#   aug_may  – northern-hemisphere club calendar (Aug start, May end)
+#   jan_dec  – calendar year
+#   irregular – cup / continental, variable
+#   tbd      – not yet audited
+#
+# seasons use plain hyphens ("2024-25"); spiders translate to en-dash when
+# building Wikipedia URLs.
+#
+# expected_teams: used by quality tests to compute expected match count.
+# null = use n*(n-1) formula (standard double round-robin).
+
+leagues:
+
+  # ──────────────────────────────────────────────────────────
+  # WAVE 1
+  # ──────────────────────────────────────────────────────────
+
+  - league_id: RSA_PREM
+    name: South African Premiership
+    country: South Africa
+    wave: 1
+    language: en
+    season_format: aug_may
+    seasons:
+      - "2021-22"
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+      - "2026-27"
+    wikipedia_title_template: "{season} South African Premiership"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+      - psl_official
+    expected_teams: 16
+
+  - league_id: EGY_PL
+    name: Egyptian Premier League
+    country: Egypt
+    wave: 1
+    language: ar
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Egyptian Premier League"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 18
+    notes: "Arabic names common; use normalise_ar() in parsers/common/names.py"
+
+  - league_id: MAR_BOTOLA
+    name: Botola Pro
+    country: Morocco
+    wave: 1
+    language: fr
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Botola Pro"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 16
+    notes: "French names with Darija variants; use normalise_fr() in parsers/common/names.py"
+
+  - league_id: TZA_PL
+    name: Tanzania Premier League
+    country: Tanzania
+    wave: 1
+    language: en
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Tanzanian Premier League"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 16
+
+  - league_id: KEN_PL
+    name: FKF Premier League
+    country: Kenya
+    wave: 1
+    language: en
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Kenyan Premier League"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 18
+    notes: >
+      Wikipedia uses "Kenyan Premier League" regardless of FKF branding.
+      Pre-2022 the league was also called 'Kenyan Premier League'.
+
+  - league_id: CAF_CL
+    name: CAF Champions League
+    country: Africa
+    type: continental
+    wave: 1
+    language: en
+    season_format: irregular
+    seasons:
+      - "2021-22"
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+      - "2026-27"
+    wikipedia_title_template: "{season} CAF Champions League"
+    sources:
+      - wikipedia_season
+      - caf_official
+    expected_teams: null
+
+  - league_id: CAF_CC
+    name: CAF Confederation Cup
+    country: Africa
+    type: continental
+    wave: 1
+    language: en
+    season_format: irregular
+    seasons:
+      - "2021-22"
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} CAF Confederation Cup"
+    sources:
+      - wikipedia_season
+      - caf_official
+    expected_teams: null
+
+  # ──────────────────────────────────────────────────────────
+  # WAVE 2
+  # ──────────────────────────────────────────────────────────
+
+  - league_id: ALG_L1
+    name: "Ligue Professionnelle 1"
+    country: Algeria
+    wave: 2
+    language: fr
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Algerian Ligue Professionnelle 1"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 16
+
+  - league_id: TUN_L1
+    name: "Ligue Professionnelle 1 (Tunisia)"
+    country: Tunisia
+    wave: 2
+    language: fr
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Tunisian Ligue Professionnelle 1"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 14
+
+  - league_id: NGA_NPFL
+    name: Nigeria Premier Football League
+    country: Nigeria
+    wave: 2
+    language: en
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Nigeria Premier Football League"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 20
+
+  - league_id: CIV_L1
+    name: "Ligue 1 (Ivory Coast)"
+    country: Ivory Coast
+    wave: 2
+    language: fr
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Ligue 1 (Ivory Coast)"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 14
+
+  - league_id: GHA_GPL
+    name: Ghana Premier League
+    country: Ghana
+    wave: 2
+    language: en
+    season_format: aug_may
+    seasons:
+      - "2022-23"
+      - "2023-24"
+      - "2024-25"
+      - "2025-26"
+    wikipedia_title_template: "{season} Ghana Premier League"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: 16
+
+  # ──────────────────────────────────────────────────────────
+  # WAVE 3
+  # ──────────────────────────────────────────────────────────
+
+  - league_id: COD_LINAFOOT
+    name: Linafoot
+    country: DR Congo
+    wave: 3
+    language: fr
+    season_format: tbd
+    seasons: []
+    wikipedia_title_template: "{season} Linafoot"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: null
+
+  - league_id: ANG_GIRABOLA
+    name: Girabola
+    country: Angola
+    wave: 3
+    language: pt
+    season_format: tbd
+    seasons: []
+    wikipedia_title_template: "{season} Girabola"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: null
+
+  - league_id: MLI_PREV
+    name: "Première Division du Mali"
+    country: Mali
+    wave: 3
+    language: fr
+    season_format: tbd
+    seasons: []
+    wikipedia_title_template: "{season} Malian Première Division"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: null
+
+  - league_id: SUD_SPL
+    name: Sudan Premier League
+    country: Sudan
+    wave: 3
+    language: ar
+    season_format: tbd
+    seasons: []
+    wikipedia_title_template: "{season} Sudan Premier League"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: null
+
+  - league_id: ZAM_SUPER
+    name: "FAZ Super Division"
+    country: Zambia
+    wave: 3
+    language: en
+    season_format: tbd
+    seasons: []
+    wikipedia_title_template: "{season} FAZ Super Division"
+    sources:
+      - wikipedia_season
+      - rsssf_tables
+    expected_teams: null

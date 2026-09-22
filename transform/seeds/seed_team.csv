@@ -1,0 +1,237 @@
+team_id,team_name,country,competition_id
+RSA_ORLANDO_PIRATES,Orlando Pirates,South Africa,RSA_PREM
+RSA_MAMELODI_SUNDOWNS,Mamelodi Sundowns,South Africa,RSA_PREM
+RSA_KAIZER_CHIEFS,Kaizer Chiefs,South Africa,RSA_PREM
+RSA_SUPERSPORT_UNITED,SuperSport United,South Africa,RSA_PREM
+RSA_STELLENBOSCH,Stellenbosch,South Africa,RSA_PREM
+RSA_CAPE_TOWN_CITY,Cape Town City,South Africa,RSA_PREM
+RSA_AMAZULU,AmaZulu,South Africa,RSA_PREM
+RSA_GOLDEN_ARROWS,Golden Arrows,South Africa,RSA_PREM
+RSA_CHIPPA_UNITED,Chippa United,South Africa,RSA_PREM
+RSA_TS_GALAXY,TS Galaxy,South Africa,RSA_PREM
+RSA_SEKHUKHUNE_UNITED,Sekhukhune United,South Africa,RSA_PREM
+RSA_ROYAL_AM,Royal AM,South Africa,RSA_PREM
+RSA_MARUMO_GALLANTS,Marumo Gallants,South Africa,RSA_PREM
+RSA_RICHARDS_BAY,Richards Bay,South Africa,RSA_PREM
+RSA_POLOKWANE_CITY,Polokwane City,South Africa,RSA_PREM
+RSA_MAGESI,Magesi,South Africa,RSA_PREM
+RSA_CAPE_TOWN_SPURS,Cape Town Spurs,South Africa,RSA_PREM
+RSA_MARITZBURG_UNITED,Maritzburg United,South Africa,RSA_PREM
+RSA_BAROKA,Baroka,South Africa,RSA_PREM
+RSA_MOROKA_SWALLOWS,Moroka Swallows,South Africa,RSA_PREM
+RSA_DURBAN_CITY,Durban City,South Africa,RSA_PREM
+RSA_ORBIT_COLLEGE,Orbit College,South Africa,RSA_PREM
+RSA_SIWELELE,Siwelele,South Africa,RSA_PREM
+RSA_AJAX_CAPE_TOWN,Ajax Cape Town,South Africa,RSA_PREM
+RSA_BLOEMFONTEIN_CELTIC,Bloemfontein Celtic,South Africa,RSA_PREM
+RSA_MILFORD,Milford,South Africa,RSA_PREM
+RSA_KRUGER_UNITED,Kruger United,South Africa,RSA_PREM
+EGY_AL_AHLY,Al Ahly,Egypt,EGY_PL
+EGY_ZAMALEK,Zamalek,Egypt,EGY_PL
+EGY_PYRAMIDS,Pyramids,Egypt,EGY_PL
+EGY_AL_MASRY,Al Masry,Egypt,EGY_PL
+EGY_NBE,National Bank of Egypt,Egypt,EGY_PL
+EGY_CERAMICA,Ceramica Cleopatra,Egypt,EGY_PL
+EGY_PHARCO,Pharco,Egypt,EGY_PL
+EGY_PETROJET,Petrojet,Egypt,EGY_PL
+EGY_HARAS,Haras El Hodoud,Egypt,EGY_PL
+EGY_TALAEE,Tala'ea El Gaish,Egypt,EGY_PL
+EGY_ZED,ZED,Egypt,EGY_PL
+EGY_SMOUHA,Smouha,Egypt,EGY_PL
+EGY_ITTIHAD,Al Ittihad,Egypt,EGY_PL
+EGY_GHAZL,Ghazl El Mahalla,Egypt,EGY_PL
+EGY_GOUNA,El Gouna,Egypt,EGY_PL
+EGY_ISMAILY,Ismaily,Egypt,EGY_PL
+EGY_ENPPI,ENPPI,Egypt,EGY_PL
+EGY_MODERN_SPORT,Modern Sport,Egypt,EGY_PL
+EGY_MODERN_FUTURE,Modern Future,Egypt,EGY_PL
+EGY_WADI_DEGLA,Wadi Degla,Egypt,EGY_PL
+EGY_ASWAN,Aswan,Egypt,EGY_PL
+EGY_FUTURE,Future,Egypt,EGY_PL
+EGY_MOKAWLOON,Al Mokawloon Al Arab,Egypt,EGY_PL
+EGY_DAKHLEYA,El Dakhleya,Egypt,EGY_PL
+EGY_BALADIYAT,Baladiyat El Mahalla,Egypt,EGY_PL
+EGY_KAHRABAA,Kahrabaa Ismailia,Egypt,EGY_PL
+MAR_WYDAD,Wydad AC,Morocco,MAR_BOTOLA
+MAR_RAJA,Raja CA,Morocco,MAR_BOTOLA
+MAR_AS_FAR,AS FAR,Morocco,MAR_BOTOLA
+MAR_RS_BERKANE,RS Berkane,Morocco,MAR_BOTOLA
+MAR_FUS_RABAT,FUS Rabat,Morocco,MAR_BOTOLA
+MAR_MAGHREB_AS,Maghreb AS,Morocco,MAR_BOTOLA
+MAR_MAS_FES,MAS Fès,Morocco,MAR_BOTOLA
+MAR_OC_KHOURIBGA,OC Khouribga,Morocco,MAR_BOTOLA
+MAR_IR_TANGER,IR Tanger,Morocco,MAR_BOTOLA
+MAR_HUS_AGADIR,HUS Agadir,Morocco,MAR_BOTOLA
+MAR_MC_OUJDA,MC Oujda,Morocco,MAR_BOTOLA
+MAR_OC_SAFI,OC Safi,Morocco,MAR_BOTOLA
+MAR_SCC_MOHAMMEDIA,SCC Mohammédia,Morocco,MAR_BOTOLA
+MAR_DH_JADIDI,DH Jadidi,Morocco,MAR_BOTOLA
+MAR_FATH_US,Fath US,Morocco,MAR_BOTOLA
+MAR_MA_TETOUAN,MA Tétouan,Morocco,MAR_BOTOLA
+MAR_JS_SOUALEM,JS Soualem,Morocco,MAR_BOTOLA
+MAR_RCA_ZEMAMRA,RCA Zemamra,Morocco,MAR_BOTOLA
+MAR_CAY_BERRECHID,CAY Berrechid,Morocco,MAR_BOTOLA
+MAR_US_TOUARGA,US Touarga,Morocco,MAR_BOTOLA
+TZA_AZAM,Azam,Tanzania,TZA_PL
+TZA_COASTAL,Coastal Union,Tanzania,TZA_PL
+TZA_DODOMA,Dodoma Jiji,Tanzania,TZA_PL
+TZA_FOUNTAIN,Fountain Gate,Tanzania,TZA_PL
+TZA_GEITA,Geita Gold,Tanzania,TZA_PL
+TZA_IHEFU,Ihefu,Tanzania,TZA_PL
+TZA_JKT,JKT Tanzania,Tanzania,TZA_PL
+TZA_KMC,KMC,Tanzania,TZA_PL
+TZA_KAGERA,Kagera Sugar,Tanzania,TZA_PL
+TZA_KENGOLD,KenGold,Tanzania,TZA_PL
+TZA_KMC2,Kinondoni MC,Tanzania,TZA_PL
+TZA_MASHUJAA,Mashujaa,Tanzania,TZA_PL
+TZA_MBEYA,Mbeya City,Tanzania,TZA_PL
+TZA_MTIBWA,Mtibwa Sugar,Tanzania,TZA_PL
+TZA_NAMUNGO,Namungo,Tanzania,TZA_PL
+TZA_PAMBA,Pamba Jiji,Tanzania,TZA_PL
+TZA_POLISI,Polisi Morogoro,Tanzania,TZA_PL
+TZA_PRISONS,Prisons,Tanzania,TZA_PL
+TZA_RUVU,Ruvu Shooting,Tanzania,TZA_PL
+TZA_SIMBA,Simba,Tanzania,TZA_PL
+TZA_SINGIDA_BS,Singida Black Stars,Tanzania,TZA_PL
+TZA_SINGIDA_BIG,Singida Big Stars,Tanzania,TZA_PL
+TZA_TRA,TRA United,Tanzania,TZA_PL
+TZA_TABORA,Tabora United,Tanzania,TZA_PL
+TZA_YANGA,Young Africans,Tanzania,TZA_PL
+KEN_AFC,AFC Leopards,Kenya,KEN_PL
+KEN_BANDARI,Bandari,Kenya,KEN_PL
+KEN_BIDCO,Bidco United,Kenya,KEN_PL
+KEN_GOR,Gor Mahia,Kenya,KEN_PL
+KEN_KCB,KCB,Kenya,KEN_PL
+KEN_HOMEBOYZ,Kakamega Homeboyz,Kenya,KEN_PL
+KEN_SHARKS,Kariobangi Sharks,Kenya,KEN_PL
+KEN_POLICE,Kenya Police,Kenya,KEN_PL
+KEN_MARA,Mara Sugar,Kenya,KEN_PL
+KEN_MATHARE,Mathare United,Kenya,KEN_PL
+KEN_MUHORONI,Muhoroni Youth,Kenya,KEN_PL
+KEN_MURANGA,Murang'a SEAL,Kenya,KEN_PL
+KEN_STARS,Nairobi City Stars,Kenya,KEN_PL
+KEN_NZOIA,Nzoia Sugar,Kenya,KEN_PL
+KEN_POSTA,Posta Rangers,Kenya,KEN_PL
+KEN_SHABANA,Shabana,Kenya,KEN_PL
+KEN_SOFAPAKA,Sofapaka,Kenya,KEN_PL
+KEN_TALANTA,Talanta,Kenya,KEN_PL
+KEN_TUSKER,Tusker,Kenya,KEN_PL
+KEN_ULINZI,Ulinzi Stars,Kenya,KEN_PL
+KEN_VIHIGA,Vihiga Bullets,Kenya,KEN_PL
+KEN_WAZITO,Wazito,Kenya,KEN_PL
+ALG_BELOUIZDAD,CR Belouizdad,Algeria,ALG_L1
+ALG_USM_ALGER,USM Alger,Algeria,ALG_L1
+ALG_MC_ALGER,MC Alger,Algeria,ALG_L1
+ALG_JS_KABYLIE,JS Kabylie,Algeria,ALG_L1
+ALG_ES_SETIF,ES Sétif,Algeria,ALG_L1
+ALG_JS_SAOURA,JS Saoura,Algeria,ALG_L1
+ALG_CS_CONSTANTINE,CS Constantine,Algeria,ALG_L1
+ALG_MC_ORAN,MC Oran,Algeria,ALG_L1
+ALG_ASO_CHLEF,ASO Chlef,Algeria,ALG_L1
+ALG_PARADOU,Paradou AC,Algeria,ALG_L1
+ALG_USM_KHENCHELA,USM Khenchela,Algeria,ALG_L1
+ALG_RC_ARBAA,RC Arbaâ,Algeria,ALG_L1
+ALG_US_BISKRA,US Biskra,Algeria,ALG_L1
+ALG_NC_MAGRA,NC Magra,Algeria,ALG_L1
+ALG_MB_ROUISSAT,MB Rouissat,Algeria,ALG_L1
+ALG_MC_EL_BAYADH,MC El Bayadh,Algeria,ALG_L1
+ALG_HB_CHELGHOUM,HB Chelghoum Laïd,Algeria,ALG_L1
+ALG_ES_MOSTAGANEM,ES Mostaganem,Algeria,ALG_L1
+ALG_OLYMPIQUE_AKBOU,Olympique Akbou,Algeria,ALG_L1
+ALG_ES_BEN_AKNOUN,ES Ben Aknoun,Algeria,ALG_L1
+ALG_US_SOUF,US Souf,Algeria,ALG_L1
+TUN_ESPERANCE,Espérance de Tunis,Tunisia,TUN_L1
+TUN_ETOILE,Étoile du Sahel,Tunisia,TUN_L1
+TUN_CS_SFAXIEN,CS Sfaxien,Tunisia,TUN_L1
+TUN_CA_BIZERTE,CA Bizertin,Tunisia,TUN_L1
+TUN_CLUB_AFRICAIN,Club Africain,Tunisia,TUN_L1
+TUN_US_MONASTIR,US Monastir,Tunisia,TUN_L1
+TUN_STADE_TUNISIEN,Stade Tunisien,Tunisia,TUN_L1
+TUN_US_BEN_GUERDANE,US Ben Guerdane,Tunisia,TUN_L1
+TUN_US_TATAOUINE,US Tataouine,Tunisia,TUN_L1
+TUN_AS_GABES,AS Gabès,Tunisia,TUN_L1
+TUN_JS_KAIROUAN,JS Kairouan,Tunisia,TUN_L1
+TUN_AS_MARSA,AS Marsa,Tunisia,TUN_L1
+TUN_OLY_BEJA,Olympique Béja,Tunisia,TUN_L1
+TUN_EGS_GAFSA,EGS Gafsa,Tunisia,TUN_L1
+TUN_ES_METLAOUI,ES Métlaoui,Tunisia,TUN_L1
+TUN_ETOILE_METLAOUI,Étoile de Métlaoui,Tunisia,TUN_L1
+TUN_AVENIR_REJICHE,Avenir de Rejiche,Tunisia,TUN_L1
+TUN_AS_SOLIMAN,AS Soliman,Tunisia,TUN_L1
+TUN_JS_EL_OMRANE,JS El Omrane,Tunisia,TUN_L1
+TUN_OLY_SIDI_BOUZID,Olympique Sidi Bouzid,Tunisia,TUN_L1
+TUN_ES_ZARZIS,ES Zarzis,Tunisia,TUN_L1
+TUN_CROISSANT_CHEBBIEN,Croissant Chebbien,Tunisia,TUN_L1
+TUN_ESPOIR,Espoir de Hammam Sousse,Tunisia,TUN_L1
+NGA_ENYIMBA,Enyimba,Nigeria,NGA_NPFL
+NGA_KANO_PILLARS,Kano Pillars,Nigeria,NGA_NPFL
+NGA_RIVERS_UNITED,Rivers United,Nigeria,NGA_NPFL
+NGA_AKWA_UNITED,Akwa United,Nigeria,NGA_NPFL
+NGA_ENUGU_RANGERS,Enugu Rangers,Nigeria,NGA_NPFL
+NGA_PLATEAU_UNITED,Plateau United,Nigeria,NGA_NPFL
+NGA_LOBI_STARS,Lobi Stars,Nigeria,NGA_NPFL
+NGA_WARRI_WOLVES,Warri Wolves,Nigeria,NGA_NPFL
+NGA_HEARTLAND,Heartland,Nigeria,NGA_NPFL
+NGA_WIKKI,Wikki Tourists,Nigeria,NGA_NPFL
+NGA_EL_KANEMI,El-Kanemi Warriors,Nigeria,NGA_NPFL
+NGA_NASARAWA,Nasarawa United,Nigeria,NGA_NPFL
+NGA_KWARA,Kwara United,Nigeria,NGA_NPFL
+NGA_SHOOTING_STARS,Shooting Stars,Nigeria,NGA_NPFL
+NGA_SUNSHINE,Sunshine Stars,Nigeria,NGA_NPFL
+NGA_ABIA_WARRIORS,Abia Warriors,Nigeria,NGA_NPFL
+NGA_BAYELSA_UNITED,Bayelsa United,Nigeria,NGA_NPFL
+NGA_BENDEL,Bendel Insurance,Nigeria,NGA_NPFL
+NGA_GOMBE,Gombe United,Nigeria,NGA_NPFL
+NGA_IKORODU,Ikorodu City,Nigeria,NGA_NPFL
+NGA_KATSINA,Katsina United,Nigeria,NGA_NPFL
+NGA_NIGER_TORNADOES,Niger Tornadoes,Nigeria,NGA_NPFL
+NGA_DOMA,Doma United,Nigeria,NGA_NPFL
+NGA_REMO,Remo Stars,Nigeria,NGA_NPFL
+NGA_SPORTING_LAGOS,Sporting Lagos,Nigeria,NGA_NPFL
+GHA_KOTOKO,Asante Kotoko,Ghana,GHA_GPL
+GHA_HEARTS,Hearts of Oak,Ghana,GHA_GPL
+GHA_MEDEAMA,Medeama,Ghana,GHA_GPL
+GHA_ADUANA,Aduana Stars,Ghana,GHA_GPL
+GHA_BECHEM,Bechem United,Ghana,GHA_GPL
+GHA_BEREKUM,Berekum Chelsea,Ghana,GHA_GPL
+GHA_GREAT_OLYMPICS,Great Olympics,Ghana,GHA_GPL
+GHA_LEGON,Legon Cities,Ghana,GHA_GPL
+GHA_DREAMS,Dreams,Ghana,GHA_GPL
+GHA_BIBIANI,Bibiani Gold Stars,Ghana,GHA_GPL
+GHA_KARELA,Karela United,Ghana,GHA_GPL
+GHA_RTU,Real Tamale United,Ghana,GHA_GPL
+GHA_NSOATREMAN,Nsoatreman,Ghana,GHA_GPL
+GHA_SAMARTEX,Samartex,Ghana,GHA_GPL
+GHA_ELEVEN_WONDERS,Eleven Wonders,Ghana,GHA_GPL
+GHA_NATIONS,Nations FC,Ghana,GHA_GPL
+GHA_KING_FAISAL,King Faisal,Ghana,GHA_GPL
+GHA_BOFOAKWA,Bofoakwa Tano,Ghana,GHA_GPL
+GHA_GOLDSTARS,Goldstars,Ghana,GHA_GPL
+GHA_HEART_OF_LIONS,Heart of Lions,Ghana,GHA_GPL
+GHA_TAMALE_CITY,Tamale City,Ghana,GHA_GPL
+GHA_YOUNG_APOSTLES,Young Apostles,Ghana,GHA_GPL
+GHA_HOLLY_STARS,Holy Stars,Ghana,GHA_GPL
+GHA_ACCRA_LIONS,Accra Lions,Ghana,GHA_GPL
+GHA_KOTOKU,Kotoku Royals,Ghana,GHA_GPL
+GHA_HOHOE,Hohoe United,Ghana,GHA_GPL
+GHA_ALL_BLACKS,All Blacks,Ghana,GHA_GPL
+CIV_ASEC,ASEC Mimosas,Ivory Coast,CIV_L1
+CIV_SOA,SOA,Ivory Coast,CIV_L1
+CIV_STELLA,Stella Club,Ivory Coast,CIV_L1
+CIV_RC_ABIDJAN,RC Abidjan,Ivory Coast,CIV_L1
+CIV_STADE_ABIDJAN,Stade d'Abidjan,Ivory Coast,CIV_L1
+CIV_SAN_PEDRO,San Pédro,Ivory Coast,CIV_L1
+CIV_AFAD,AFAD,Ivory Coast,CIV_L1
+CIV_MIMOSAS,Mimosas,Ivory Coast,CIV_L1
+CIV_ISCA,ISCA,Ivory Coast,CIV_L1
+CIV_SOL,SOL,Ivory Coast,CIV_L1
+CIV_OSA,OSA,Ivory Coast,CIV_L1
+CIV_DENGUELA,Denguélé,Ivory Coast,CIV_L1
+CIV_BOUAKE,Bouaké,Ivory Coast,CIV_L1
+CIV_LYS_SASSANDRA,LYS Sassandra,Ivory Coast,CIV_L1
+CIV_KORHOGO,Korhogo,Ivory Coast,CIV_L1
+CIV_MOUNA,Mouna,Ivory Coast,CIV_L1
+CIV_ZOMAN,Zoman,Ivory Coast,CIV_L1
+GHA_VISION,Vision FC,Ghana,GHA_GPL
+NGA_BARAU,Barau FC,Nigeria,NGA_NPFL
+NGA_KUN_KHALIFAT,Kun Khalifat,Nigeria,NGA_NPFL

@@ -26,3 +26,8 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Observable Framework
+observable/node_modules/
+observable/dist/
+observable/src/.observablehq/

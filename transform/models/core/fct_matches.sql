@@ -1,18 +1,29 @@
-with r as (select * from {{ ref('stg_wiki_results') }}),
-a as (select * from {{ ref('team_aliases') }} where source = 'wikipedia')
+{{
+  config(
+    materialized='view',
+    tags=['core', 'legacy']
+  )
+}}
+
+/*
+  fct_matches — BACKWARD-COMPATIBLE ALIAS for core.match.
+
+  Existing dashboard and test references continue to work.
+  New code should reference {{ ref('match') }} directly.
+*/
 
 select
-    md5(r.season || ha.team_id || aa.team_id) as match_id,
-    r.season,
-    ha.team_id as home_team_id,
-    aa.team_id as away_team_id,
-    r.home_goals,
-    r.away_goals,
-    case when r.home_goals > r.away_goals then 'H'
-         when r.home_goals < r.away_goals then 'A'
-         else 'D' end as result,
-    'wikipedia' as source,
-    r.source_url
-from r
-left join a ha on ha.alias = r.home_team_raw
-left join a aa on aa.alias = r.away_team_raw
+    match_id,
+    season_id,
+    league_id,
+    season,
+    match_date,
+    home_team_id,
+    away_team_id,
+    home_goals,
+    away_goals,
+    result,
+    status,
+    source_id       as source,
+    source_url
+from {{ ref('match') }}

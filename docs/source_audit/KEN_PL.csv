@@ -1,0 +1,3 @@
+source_id,site_url,robots_txt_url,robots_checked,robots_result,tos_url,tos_reviewed,tos_verdict,allowed,priority,rate_limit_seconds,provides,notes
+wikipedia_season,https://en.wikipedia.org/wiki/{season}_FKF_Premier_League,https://en.wikipedia.org/robots.txt,true,"Allow: /wiki/",https://en.wikipedia.org/wiki/Wikipedia:Terms_of_Use,true,CC BY-SA,true,2,1.0,"matches,standings","Coverage varies; league was called 'Kenyan Premier League' pre-2022. Add alias title in spider for older seasons."
+rsssf_tables,https://rsssf.org/tablesK/keny.html,https://rsssf.org/robots.txt,true,Allow: /,https://rsssf.org/about.html,true,Free to copy with acknowledgement,true,3,2.0,"matches,standings",Moderate RSSSF coverage. Some seasons may use 'FKF League' branding — verify.

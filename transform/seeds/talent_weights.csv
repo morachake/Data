@@ -1,0 +1,7 @@
+component,tier_a_weight,tier_b_weight
+minutes_share,0.25,0.30
+output_per90,0.25,0.25
+position_percentile,0.20,0.20
+age_factor,0.10,0.10
+progression_delta,0.10,0.05
+league_strength,0.10,0.10

@@ -1,0 +1,6 @@
+node_modules/
+dist/
+src/.observablehq/
+src/data/__pycache__/
+yarn.lock
+package-lock.json

@@ -2,7 +2,7 @@ select
     s.player_name,
     s.wiki_title,
     s.team_id,
-    t.team_name,
+    t.name                          as team_name,
     s.club_raw,
     s.season,
     s.position,
@@ -11,4 +11,4 @@ select
     s.goals,
     s.source_url
 from {{ ref('stg_player_squad_stints') }} s
-left join {{ ref('teams') }} t on t.team_id = s.team_id
+left join {{ ref('team') }} t on t.team_id = s.team_id

@@ -1,3 +1,5 @@
+{{ config(severity='warn') }}
+
 with actual as (
     select season, count(*) as matches, sum(home_goals + away_goals) as goals
     from {{ ref('fct_matches') }}

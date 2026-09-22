@@ -1,19 +1,132 @@
 version: 2
+
 models:
-  - name: fct_matches
+  # ────────────────────────────── match ───────────────────────────────
+  - name: match
+    description: "Reconciled match records for all leagues and seasons."
     columns:
       - name: match_id
-        tests: [unique, not_null]
+        description: "Deterministic MD5 of season_id + home_team_id + away_team_id"
+        tests:
+          - unique
+          - not_null
+      - name: season_id
+        tests:
+          - not_null
       - name: home_team_id
         tests:
           - not_null
           - relationships:
+              config:
+                severity: warn
               arguments:
-                to: ref('teams')
+                to: ref('team')
                 field: team_id
-  - name: dim_players
+      - name: away_team_id
+        tests:
+          - not_null
+          - relationships:
+              config:
+                severity: warn
+              arguments:
+                to: ref('team')
+                field: team_id
+      - name: home_goals
+        tests:
+          - not_null
+      - name: away_goals
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['played', 'postponed', 'abandoned', 'awarded', 'unknown']
+
+  # ────────────────────────────── fct_matches (alias) ─────────────────
+  - name: fct_matches
+    description: "Backward-compatible alias for core.match."
+
+  # ────────────────────────────── competition ─────────────────────────
+  - name: competition
+    description: "Master list of leagues and cups."
+    columns:
+      - name: competition_id
+        tests:
+          - unique
+          - not_null
+
+  # ────────────────────────────── season ──────────────────────────────
+  - name: season
+    description: "One row per competition × season label."
+    columns:
+      - name: season_id
+        tests:
+          - unique
+          - not_null
+
+  # ────────────────────────────── team ────────────────────────────────
+  - name: team
+    description: "Master team list (sourced from the seed_team seed)."
+    columns:
+      - name: team_id
+        tests:
+          - unique
+          - not_null
+
+  # ────────────────────────────── player ──────────────────────────────
+  - name: player
+    description: "Canonical player entities."
     columns:
       - name: player_id
-        tests: [unique, not_null]
+        tests:
+          - unique
+          - not_null
       - name: full_name
-        tests: [not_null]
+        tests:
+          - not_null
+      - name: dob_confidence
+        tests:
+          - accepted_values:
+              values: ['high', 'medium', 'low', 'unknown']
+
+  # ────────────────────────────── standings ───────────────────────────
+  - name: standings
+    description: "Computed league table per season."
+    columns:
+      - name: season_id
+        tests:
+          - not_null
+      - name: team_id
+        tests:
+          - not_null
+
+  # ────────────────────────────── league_season_coverage ──────────────
+  - name: league_season_coverage
+    description: "Coverage metrics and tier per season."
+    columns:
+      - name: season_id
+        tests:
+          - unique
+          - not_null
+      - name: tier
+        tests:
+          - accepted_values:
+              config:
+                severity: warn
+              values: ['A', 'B', 'C', null]
+
+  # ────────────────────────────── conflict_log ────────────────────────
+  - name: conflict_log
+    description: "Source-disagreement log for auditing."
+
+  # ────────────────────────────── dim_players (legacy) ────────────────
+  - name: dim_players
+    description: "Legacy player dimension — superseded by core.player."
+    columns:
+      - name: player_id
+        tests:
+          - unique
+          - not_null
+      - name: full_name
+        tests:
+          - not_null

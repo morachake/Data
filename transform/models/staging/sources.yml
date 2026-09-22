@@ -1,11 +1,22 @@
 version: 2
+
 sources:
   - name: staging
     schema: staging
     tables:
+      # Legacy (Phase 0 transition)
       - name: wiki_results
       - name: players
       - name: player_career
       - name: player_injuries
       - name: player_season_stats
       - name: player_squad_stints
+
+      # Phase 1 — new staging tables
+      - name: stg_match
+      - name: stg_goal
+      - name: stg_appearance
+      - name: stg_squad
+      - name: stg_standing
+      - name: stg_player_profile
+      - name: parse_failures

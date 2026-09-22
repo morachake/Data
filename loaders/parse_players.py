@@ -53,11 +53,131 @@ def clean_name(value: str | None) -> str:
     return re.sub(r"\s+", " ", text).strip(" -–—")
 
 
+# Suffixes that indicate a club / team name rather than a person
+_CLUB_SUFFIX_RE = re.compile(
+    r"\b(United|City|FC|F\.C\.|AFC|Wanderers|Rangers|Athletic|Rovers|Sporting"
+    r"|Cosmos|Hotspurs|Pirates|Chiefs|Sundowns|Swallows|Arrows|Galaxy"
+    r"|FCSB|AmaZulu|Sekhukhune)\b",
+    re.IGNORECASE,
+)
+
+
 def is_person_name(value: str | None) -> bool:
     name = clean_name(value)
     if len(name) < 4 or name.lower() in {"player", "name", "total", "own goals"}:
         return False
+    # Reject obvious club / team names
+    if _CLUB_SUFFIX_RE.search(name):
+        return False
     return bool(re.search(r"[A-Za-zÀ-ÿ]{3,}", name))
+
+
+# ── Nationality extraction from bio text ─────────────────────────────────────
+# Wikipedia bios open with "X is a/an <nationality> [professional] footballer"
+# e.g. "Sherwyn Naicker (born 26 March 1991) is a South African former professional soccer player"
+_BIO_NATIONALITY_RE = re.compile(
+    r"\bis an? ([\w\s\-]+?(?:ian|an|ese|ish|i|er|nian|ean|lian|rian|ican|enian|onian|andan|golan|inian|olese|olian))\b"
+    r"(?:\s+(?:former\s+)?(?:professional\s+)?(?:South\s+African\s+)?(?:football|soccer|player|professional))",
+    re.IGNORECASE,
+)
+
+# Curated list of known African footballer nationalities for validation
+_KNOWN_NATIONALITIES = {
+    "south african", "nigerian", "ghanaian", "kenyan", "tanzanian",
+    "ugandan", "zambian", "zimbabwean", "malawian", "mozambican",
+    "botswanan", "namibian", "lesothan", "swazi", "congolese",
+    "cameroonian", "ivorian", "senegalese", "moroccan", "algerian",
+    "tunisian", "egyptian", "ethiopian", "rwandan", "burundian",
+    "sudanese", "libyan", "angolan", "cape verdean", "guinean",
+    "sierra leonean", "liberian", "togolese", "beninese", "malian",
+    "burkinabe", "nigerien", "chadian", "gabonese", "equatorial guinean",
+    "eritrean", "djiboutian", "somali", "seychellois", "mauritian",
+    "malagasy", "comoran", "mozambican", "gambian",
+    # European / other common in African leagues
+    "french", "portuguese", "spanish", "brazilian", "argentinian",
+    "uruguayan", "colombian", "dutch", "belgian", "english", "irish",
+    "scottish", "swedish", "norwegian", "danish", "german", "italian",
+    "greek", "austrian", "swiss", "croatian", "serbian", "bosnian",
+}
+
+
+_STRIP_PREFIXES = re.compile(
+    r"^(retired|former|dual|professional|late|active|british|honorary)\s+",
+    re.IGNORECASE,
+)
+
+
+# ── DOB extraction from bio text ─────────────────────────────────────────────
+_MONTH_MAP = {
+    "january": "01", "february": "02", "march": "03", "april": "04",
+    "may": "05", "june": "06", "july": "07", "august": "08",
+    "september": "09", "october": "10", "november": "11", "december": "12",
+}
+
+# Patterns:
+#   "(born 5 February 2001)"  "(born 1978)"  "(3 June 1980 –"
+_BIO_DOB_PATTERNS = [
+    # ISO already embedded: born 1978-03-04
+    re.compile(r"\bborn[^)]*?(\d{4}-\d{2}-\d{2})", re.IGNORECASE),
+    # "born DD Month YYYY" or "(DD Month YYYY)" with optional [n]
+    re.compile(
+        r"\bborn\s+(\d{1,2})\s+(january|february|march|april|may|june|july"
+        r"|august|september|october|november|december)\s+(\d{4})",
+        re.IGNORECASE,
+    ),
+    # "(DD Month YYYY –" death / career range bracket
+    re.compile(
+        r"\((\d{1,2})\s+(january|february|march|april|may|june|july"
+        r"|august|september|october|november|december)\s+(\d{4})\s*[–-]",
+        re.IGNORECASE,
+    ),
+    # born YYYY (year only)
+    re.compile(r"\bborn\s+(?:c\.\s*)?(\d{4})\b", re.IGNORECASE),
+]
+
+
+def extract_dob_from_bio(bio: str | None) -> str | None:
+    """Return ISO date string (YYYY-MM-DD or YYYY-01-01) from bio text, or None."""
+    if not bio:
+        return None
+    for pat in _BIO_DOB_PATTERNS:
+        m = pat.search(bio)
+        if not m:
+            continue
+        groups = m.groups()
+        if len(groups) == 1:
+            val = groups[0]
+            # ISO date already
+            if re.match(r"\d{4}-\d{2}-\d{2}", val):
+                return val
+            # Year-only
+            if re.match(r"\d{4}", val):
+                return f"{val}-01-01"
+        elif len(groups) == 3:
+            day, month_name, year = groups
+            month = _MONTH_MAP.get(month_name.lower())
+            if month:
+                return f"{year}-{month}-{int(day):02d}"
+    return None
+
+
+def extract_nationality_from_bio(bio: str | None) -> str | None:
+    """Parse the opening bio sentence for a nationality adjective."""
+    if not bio:
+        return None
+    m = _BIO_NATIONALITY_RE.search(bio)
+    if not m:
+        return None
+    nat = _STRIP_PREFIXES.sub("", m.group(1).strip()).lower()
+    # Validate against known list to avoid false positives
+    if nat in _KNOWN_NATIONALITIES:
+        return nat.title()
+    # Accept multi-word if any word matches known list (e.g. "Cape Verdean")
+    parts = nat.split()
+    for part in parts:
+        if part in _KNOWN_NATIONALITIES:
+            return nat.title()
+    return None
 
 
 def parse_squads(cur):
@@ -171,30 +291,49 @@ def parse_profiles(cur):
             continue
         pid = player_id(title, payload.get("wikidata_id"))
         info = payload.get("infobox") or {}
+        bio = payload.get("bio") or ""
+
+        # Nationality: prefer infobox, fall back to bio sentence extraction.
+        nationality = (
+            pick(info, "nationality", "national team")
+            or extract_nationality_from_bio(bio)
+        )
+
+        # DOB: prefer infobox field, fall back to bio text extraction.
+        raw_dob = pick(info, "date of birth") or extract_dob_from_bio(bio)
+
         cur.execute(
             """INSERT INTO staging.players
                (player_id, wiki_title, full_name, date_of_birth, place_of_birth, height,
                 position, current_club, nationality, wikidata_id, image_url, bio, source_url)
                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                ON CONFLICT (player_id) DO UPDATE SET
-                 full_name = EXCLUDED.full_name,
-                 current_club = EXCLUDED.current_club,
-                 image_url = EXCLUDED.image_url,
-                 bio = EXCLUDED.bio,
-                 source_url = EXCLUDED.source_url""",
+                 full_name    = EXCLUDED.full_name,
+                 date_of_birth = COALESCE(EXCLUDED.date_of_birth,
+                                          staging.players.date_of_birth),
+                 place_of_birth = COALESCE(EXCLUDED.place_of_birth,
+                                           staging.players.place_of_birth),
+                 height       = COALESCE(EXCLUDED.height, staging.players.height),
+                 position     = COALESCE(EXCLUDED.position, staging.players.position),
+                 current_club = COALESCE(EXCLUDED.current_club, staging.players.current_club),
+                 nationality  = COALESCE(EXCLUDED.nationality, staging.players.nationality),
+                 wikidata_id  = COALESCE(EXCLUDED.wikidata_id, staging.players.wikidata_id),
+                 image_url    = COALESCE(EXCLUDED.image_url, staging.players.image_url),
+                 bio          = COALESCE(EXCLUDED.bio, staging.players.bio),
+                 source_url   = EXCLUDED.source_url""",
             (
                 pid,
                 title,
                 clean_name(pick(info, "full name", "name") or title),
-                pick(info, "date of birth"),
+                raw_dob,
                 pick(info, "place of birth"),
                 pick(info, "height"),
                 pick(info, "position", "position(s)"),
                 clean_name(pick(info, "current team", "club")),
-                pick(info, "nationality", "national team"),
+                nationality,
                 payload.get("wikidata_id"),
                 payload.get("image_url"),
-                payload.get("bio"),
+                bio,
                 payload.get("source_url"),
             ),
         )
@@ -221,7 +360,7 @@ def parse_profiles(cur):
 
 
 def parse_leaderboards(cur):
-    cur.execute("TRUNCATE staging.player_season_stats")
+    # Do not truncate: load_season_player_stats.py owns multi-league rows.
     cur.execute("""
         SELECT DISTINCT ON (season, table_index) season, section, rows, source_url
         FROM raw.wiki_tables

@@ -3,9 +3,9 @@ current_season as (
     select max(season) as season from {{ ref('standings') }}
 ),
 current_clubs as (
-    select distinct t.team_name
+    select distinct t.name
     from {{ ref('standings') }} s
-    join {{ ref('teams') }} t on t.team_id = s.team_id
+    join {{ ref('team') }} t on t.team_id = s.team_id
     join current_season c on c.season = s.season
 ),
 current_squad as (
@@ -31,7 +31,7 @@ select
     case
         when exists (
             select 1 from current_clubs cc
-            where p.current_club ilike '%' || cc.team_name || '%'
+            where p.current_club ilike '%' || cc.name || '%'
         ) then 'in_league'
         when exists (
             select 1 from current_squad cs

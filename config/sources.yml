@@ -1,0 +1,87 @@
+# Source registry — one entry per scrape source.
+#
+# Rule enforced in code: spiders refuse to start if `allowed: false`.
+# Set robots_checked AND tos_reviewed to true, then flip allowed to true
+# only after completing a source audit (docs/source_audit/<league_id>.csv).
+#
+# priority: lower number wins in multi-source reconciliation (1 = best).
+#
+# Commercial aggregators (score sites, market-value sites) are NOT here.
+# Their terms restrict automated collection. Use them manually to verify
+# suspicious records only.
+
+sources:
+
+  - source_id: wikipedia_season
+    base_url: https://en.wikipedia.org
+    kind: html
+    provides:
+      - matches
+      - standings
+      - top_scorers
+      - squads
+    licence: "CC BY-SA — attribution required in all public exports"
+    robots_checked: true
+    tos_reviewed: true
+    allowed: true
+    priority: 2
+    rate_limit_seconds: 1.0
+    notes: >
+      Article paths (/wiki/*) are allowed. Do not crawl /w/, /api/, or
+      Special: pages — those are disallowed by robots.txt.
+      Use MediaWiki Action API as fallback if HTML parsing becomes fragile.
+
+  - source_id: rsssf_tables
+    base_url: https://rsssf.org
+    kind: text_html
+    provides:
+      - matches
+      - standings
+      - top_scorers
+    licence: "Free to copy with acknowledgement of RSSSF"
+    robots_checked: true
+    tos_reviewed: true
+    allowed: true
+    priority: 3
+    rate_limit_seconds: 2.0
+    notes: >
+      Plain-text result and standings pages. Lower priority than Wikipedia
+      (3 vs 2) because coverage varies. Used as cross-check and gap-filler.
+
+  - source_id: psl_official
+    base_url: https://www.psl.co.za
+    kind: html
+    provides:
+      - matches
+      - match_reports
+      - lineups
+      - scorers
+    licence: >
+      Official league site. Non-commercial, educational use only.
+      Commercial reuse requires written PSL consent (see notes.md).
+    robots_checked: true
+    tos_reviewed: true
+    allowed: false   # flip to true once non-commercial use confirmed acceptable
+    priority: 1
+    rate_limit_seconds: 2.0
+    notes: >
+      Match Centre (/matchcentre) has current-season fixtures, results and
+      standings in rendered HTML. Individual match pages (/matchcentre/detail/<id>)
+      have lineups, substitutions and scorers — needed for Tier A coverage.
+      JS-rendered: check Network tab for JSON endpoints before using Playwright.
+
+  - source_id: caf_official
+    base_url: https://www.cafonline.com
+    kind: html
+    provides:
+      - matches
+      - standings
+    licence: "Official CAF site — terms not yet reviewed"
+    robots_checked: false
+    tos_reviewed: false
+    allowed: false
+    priority: 1
+    rate_limit_seconds: 2.0
+    notes: >
+      robots.txt returned 404 (no policy published). Complete a source audit
+      and ToS review before enabling.

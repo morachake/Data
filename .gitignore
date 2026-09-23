@@ -1,5 +1,4 @@
 # Secrets
-.env
 
 # Scraper output and cache
 data/raw/*
@@ -31,3 +30,5 @@ __pycache__/
 observable/node_modules/
 observable/dist/
 observable/src/.observablehq/
+config.bat
+node_modules

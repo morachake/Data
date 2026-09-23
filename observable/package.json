@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "observable preview",
-    "build": "observable build",
+    "dev": "node init && observable preview",
+    "build": "node init && observable build",
     "preview": "http-server dist",
     "clean": "rm -rf src/.observablehq/cache"
   },
